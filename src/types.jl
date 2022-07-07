@@ -67,6 +67,11 @@ function Base.show(io::IO, tree::Tree)
     foreach(x -> println("--", x), tree.nodes)
 end
 
+function Base.show(io::IO, node::Node)
+    @info "FP Growth Node"
+    println("-- ", node.id, " ", node.label)
+end
+
 
 #=
     Manipulating nodes
@@ -76,7 +81,7 @@ end
 function insert_node(tree::Tree, label::String, parent::Int)
     tree.size += 1
     id = tree.size
-    push!(tree.nodes, Node(id = id, label = label, parent = parent))
+    push!(tree.nodes, Node(id, label, parent, [], [], 0))
     push!(tree.labels, label)
     @info "Added node number $id with the label $label"
 end
