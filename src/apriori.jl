@@ -31,6 +31,17 @@ function proces_itemsets(itemsets)
     # detect
 end
 
+function mine_rules(itemsets; min_support = 0, max_length = 0)
+    #return "One rule to rule them all ..."
+    return "{bread, butter} => {milk}"
+end
+
+mine_rules("abc")
+
+println(["ghjg => hklh ", 12, 6, 8])
+
+
+
 # Tests
 
 transactions = [["apples", "bananas", "eggs"],
