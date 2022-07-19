@@ -24,7 +24,6 @@ support(itemsets) = countmap(vcat(itemsets...))
 Returns a collection of rules with a minimum support of min_support and of
 maximum length, max_length.
 """
-"""
 function apriori()
 end
 
