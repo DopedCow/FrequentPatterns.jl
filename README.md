@@ -8,10 +8,10 @@ Things to consider
 * Use Apache Arrow under the hood
 * Rework the whole architecture :-)
 
-´´´mermaid
+```mermaid
 sequenceDiagram
     participant Parser
     participant Algorithm
     participant API
     Parser <<- Algorithm: Pick-up DB
-´´´
+``````
