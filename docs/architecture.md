@@ -19,4 +19,8 @@ sequenceDiagram
 ```
 
 Considering the reliance on set intersections, it makes sense to use Sets in
-Julia to accomplish this.
+Julia to accomplish this. $A \cap B$
+
+$$
+\varnothing
+$$
