@@ -1,6 +1,6 @@
 """
 """
-function support()
+function support(y)
 end
 
 """
@@ -21,6 +21,6 @@ end
 
 """
 """
-function lift(x, y) = confidence(x, y) / support(y)
+#function lift(x, y) = confidence(x, y) / support(y)
   
 # TODO Consider adding additional functions for coverage and Fisher's exact test
