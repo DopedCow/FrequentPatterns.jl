@@ -1,7 +1,13 @@
 using Combinatorics
 using StatsBase
 
+include("measurements.jl")
+include("rules.jl")
 
+
+"""
+"""
+unique_items(db) = unique(vcat(db...))
 
 
 """
@@ -36,20 +42,31 @@ function eclat(transactions, minimum_support = 2, maximum_length = 2)
     return rules
 end
 
-
-
 """
 """
-function confidence(rules, supp, minimum_confidence = 0)
-    confidence = Dict()
+function TID(db)
 
-    for k in keys(rules)
-        for s in powerset(k, 2, 3)
-            println(s)
-        end
-        c = rules[k] / supp[k[1]]
-        c >= minimum_confidence && push!(confidence, k => c)
-    end
-    return confidence
 end
 
+eclat(db)
+
+db = [["beer", "wine", "cheese"],
+      ["beer", "potato chips"],
+      ["eggs", "flour", "butter", "cheese"],
+      ["eggs", "flour", "butter", "beer", "potato chips"],
+      ["wine", "cheese"],
+      ["potato chips"],
+      ["eggs", "flour", "butter", "wine", "cheese"],
+      ["eggs", "flour", "butter", "beer", "potato chips"],
+      ["wine", "beer"],
+      ["beer", "potato chips"],
+      ["butter", "eggs"],
+      ["beer", "potato chips"],
+      ["flour", "eggs"],
+      ["beer", "potato chips"],
+      ["eggs", "flour", "butter", "wine", "cheese"],
+      ["beer", "wine", "potato chips", "cheese"],
+      ["wine", "cheese"],
+      ["beer", "potato chips"],
+      ["wine", "cheese"],
+      ["beer", "potato chips"]]
