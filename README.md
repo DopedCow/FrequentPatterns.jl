@@ -10,8 +10,12 @@ Things to consider
 
 ```mermaid
 sequenceDiagram
+    autonumber
     participant Parser
     participant Algorithm
     participant API
-    Parser <<- Algorithm: Pick-up DB
-``````
+    Algorithm->>Parser: Pick-up DB
+    API -->> API: Talk to self
+    O -->> Parser: 
+```
+
