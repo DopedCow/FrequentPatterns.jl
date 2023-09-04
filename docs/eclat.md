@@ -17,14 +17,44 @@ generation of sets to consider and currently has no optimisations to ignore
 combinations that contain infrequent subsets.
 
 ```mermaid
+flowchart LR
+    raw(raw data)
+    tid(TID set)
+    e(ECLAT)
+    cat(Catalog<br/> of Items)
+    m{Matrix?}
+
+    raw --> m
+    m --> |yes - convert to Vector| tid
+    m --> |"`**no**`"| tid
+    tid --> e
+    tid --> cat
+    cat --> e
+```
+
+
+```mermaid
 sequenceDiagram
     autonumber
-    title ECLAT
+    title The ECLAT algorithm
 
     actor u as User
     participant db as Database
     participant p as Parser
+    participant e as ECLAT
+    participant r as Rules
 
-    u ->> db : start
+    Note over r : Vector{Rule}
+
+    u ->> db : ingest raw data
+    e ->>+ r : create collection
+    loop
+    alt
+        e ->> r : push! rule
+    end
+    end
+    r ->>- e : g
     p --) db : end
 ```
+
+Please note! The 

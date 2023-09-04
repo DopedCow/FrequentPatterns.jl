@@ -1,9 +1,7 @@
 include("eclat.jl")
+include("measurements.jl")
+include("rules.jl")
 include("tools.jl")
-
-#=------------------------------------------------------------------------------
-    T E S T S
-------------------------------------------------------------------------------=#
 
 transactions = Dict("Bread" => [1, 4, 5, 7, 8, 9],
                     "Butter" => [1, 2, 3, 4, 6, 8, 9],
@@ -14,9 +12,21 @@ transactions = Dict("Bread" => [1, 4, 5, 7, 8, 9],
 #
 s = support(transactions)
 rules = eclat(transactions, 2, 4)
-
 confidence(rules, s)
 
 # generate collections
 
 collections = generate_collections(10)
+
+#=
+Test of the ECLAT algorithm using the Games Sales dataset
+=#
+using DelimitedFiles
+
+idb = readdlm("./src/games_sales_dataset.csv", ',', String)
+
+#idb = [idb[i, :] for i in 1:size(idb, 1)]
+
+eclat(idb, 5000, 3)
+
+# remove empty entries
