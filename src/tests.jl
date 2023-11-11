@@ -30,3 +30,20 @@ idb = readdlm("./src/games_sales_dataset.csv", ',', String)
 eclat(idb, 5000, 3)
 
 # remove empty entries
+
+
+#=----------
+
+----------=#
+include("types.jl")
+
+testTree = Tree()
+
+testTree.nodes
+
+insert_node(testTree, "label A", 1)
+insert_node(testTree, "label B", 1)
+
+println(" - - - ")
+testTree.nodes
+testTree

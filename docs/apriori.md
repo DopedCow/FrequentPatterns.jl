@@ -12,7 +12,7 @@ sequenceDiagram
     idb ->> idb : Find powerset
 ```
 
-For apriori we get both support and lift
+For apriori we get both `support` and `lift`.
 
 $$
 lift = \frac{P(X \cap Y)}{P(X)*P(Y)}

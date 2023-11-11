@@ -1,6 +1,3 @@
-module Types
-
-
 export Tree, Node, insert_node, update_node!
 
 #=
@@ -64,7 +61,7 @@ end
 function Base.show(io::IO, tree::Tree)
     @info "FP Growth Tree"
     @info "Nodes..."
-    foreach(x -> println("--", x), tree.nodes)
+    map(@info, tree.nodes)
 end
 
 function Base.show(io::IO, node::Node)
@@ -89,8 +86,7 @@ end
 
 """
     update_node!(node)
+
 Increases the support count of the supplied node by 1.
 """
 update_node!(node::Node) = node.support += 1
-
-end
